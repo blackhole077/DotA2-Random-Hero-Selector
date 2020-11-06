@@ -16,29 +16,9 @@ import numpy as np
 from scipy.special import softmax
 import pandas as pd
 from json import load
-from typing import List, TypedDict, Optional
+from typing import List
 
-def open_file(filename, verbose=False):
-    '''Attempts to open the file and parse it to convert <Hero_Name, Desire to Play> lines into
-       hero name, weights respectively and append them to the appropriate lists.
-    '''
-    name_list = []
-    weights = []
-    if not os.path.exists(filename):
-        print('Cannot find file {}. Check that you have it'.format(filename),
-              'in the same directory as the .exe')
-        sys.exit(0)
-    with open(filename, 'r') as file:
-        for line in file:
-            name, weight = line.split(',')
-            name_list.append(name)
-            weights.append(weight)
-    if verbose:
-        print('Number of entries: {} entries'.format(len(name_list)))
-        print('Number of entries (weights): {} entries'.format(len(weights)))
-    return name_list, weights
-
-def create_probability_list(preference_list: List[int]) -> 'numpy.array':
+def generate_probability_list(preference_list: List[int]) -> 'numpy.array':
     """
         Generate a weighted list based on preferences.
 
@@ -87,18 +67,37 @@ def generate_hero_dataframe(preference_location: str, configuration_location:str
         hero_dataframe: pandas.DataFrame
             A DataFrame object that contains all information in both files.
     """
-    combined_dict = {}
-    with open(preference_location, 'r') as _preference_file:
-        combined_dict.update(load(_preference_file))
+    hero_dict = {}
     with open(configuration_location, 'r') as _config_file:
-        combined_dict.update(load(_config_file))
-    return pd.DataFrame.from_dict(combined_dict)
+        hero_dict = load(_config_file)
+    pref_dict = {}
+    with open(preference_location, 'r') as _preference_file:
+        pref_dict = load(_preference_file)
+    # Manually update one dictionary with values from the other to prevent overwriting
+    for key in hero_dict.keys():
+        hero_dict[key].update(pref_dict.get(key))
+    # Clean out the preference dictionary
+    pref_dict.clear()
+    return pd.DataFrame.from_dict(hero_dict, orient='index')
 
 def main():
     '''The main function for rolling (and re-rolling) a random hero
        according to your weighted preferences.
     '''
+    hero_dataframe = generate_hero_dataframe('config/default_hero_list.json', 'config/hero_configuration.json')
+    print(hero_dataframe)
+    mask = np.in1d(hero_dataframe['primary_stat'].values, ['strength', 'intelligence'])
+    mask_2 = hero_dataframe['attack_type'] == 'ranged'
+    mask_comp = mask & mask_2
+    df_slice = hero_dataframe[mask_comp]
+    print(df_slice)
+    weighted_probabilities = generate_probability_list(df_slice['preference'].values)
+    for _ in range(5):
+        print(df_slice.sample(weights=weighted_probabilities).index.values)
     # TODO: Write call for converting JSON files into DataFrame
     # TODO: Test that weighted random via softmax works as intended
     # TODO: Write this main function as a callback on start for tkinter
     pass
+
+if __name__ == "__main__":
+    main()

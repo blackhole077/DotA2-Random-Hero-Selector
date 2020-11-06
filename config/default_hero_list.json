@@ -1,121 +1,359 @@
 {
-    "Abaddon": 1,
-    "Alchemist": 1,
-    "Ancient Apparition": 1,
-    "Anti-Mage": 1,
-    "Arc Warden": 1,
-    "Axe": 1,
-    "Bane": 1,
-    "Batrider": 1,
-    "Beastmaster": 1,
-    "Bloodseeker": 1,
-    "Bounty Hunter": 1,
-    "Brewmaster": 1,
-    "Bristleback": 1,
-    "Broodmother": 1,
-    "Centaur Warrunner": 1,
-    "Chaos Knight": 1,
-    "Chen": 1,
-    "Clinkz": 1,
-    "Clockwerk": 1,
-    "Crystal Maiden": 1,
-    "Dark Seer": 1,
-    "Dark Willow": 1,
-    "Dazzle": 1,
-    "Death Prophet": 1,
-    "Disruptor": 1,
-    "Doom": 1,
-    "Dragon Knight": 1,
-    "Drow Ranger": 1,
-    "Earth Spirit": 1,
-    "Earthshaker": 1,
-    "Elder Titan": 1,
-    "Ember Spirit": 1,
-    "Enchantress": 1,
-    "Enigma": 1,
-    "Faceless Void": 1,
-    "Grimstroke": 1,
-    "Gyrocopter": 1,
-    "Huskar": 1,
-    "Invoker": 1,
-    "Io": 1,
-    "Jakiro": 1,
-    "Juggernaut": 1,
-    "Keeper of the Light": 1,
-    "Kunkka": 1,
-    "Legion Commander": 1,
-    "Leshrac": 1,
-    "Lich": 1,
-    "Lifestealer": 1,
-    "Lina": 1,
-    "Lion": 1,
-    "Lone Druid": 1,
-    "Luna": 1,
-    "Lycan": 1,
-    "Magnus": 1,
-    "Mars": 1,
-    "Medusa": 1,
-    "Meepo": 1,
-    "Mirana": 1,
-    "Monkey King": 1,
-    "Morphling": 1,
-    "Naga Siren": 1,
-    "Nature's Prophet": 1,
-    "Necrophos": 1,
-    "Night Stalker": 1,
-    "Nyx Assassin": 1,
-    "Ogre Magi": 1,
-    "Omniknight": 1,
-    "Oracle": 1,
-    "Outworld Devourer": 1,
-    "Pangolier": 1,
-    "Phantom Assassin": 1,
-    "Phantom Lancer": 1,
-    "Phoenix": 1,
-    "Puck": 1,
-    "Pudge": 1,
-    "Pugna": 1,
-    "Queen of Pain": 1,
-    "Razor": 1,
-    "Riki": 1,
-    "Rubick": 1,
-    "Sand King": 1,
-    "Shadow Demon": 1,
-    "Shadow Fiend": 1,
-    "Shadow Shaman": 1,
-    "Silencer": 1,
-    "Skywrath Mage": 1,
-    "Slardar": 1,
-    "Slark": 1,
-    "Snapfire": 1,
-    "Sniper": 1,
-    "Spectre": 1,
-    "Spirit Breaker": 1,
-    "Storm Spirit": 1,
-    "Sven": 1,
-    "Techies": 1,
-    "Templar Assassin": 1,
-    "Terrorblade": 1,
-    "Tidehunter": 1,
-    "Timbersaw": 1,
-    "Tinker": 1,
-    "Tiny": 1,
-    "Treant Protector": 1,
-    "Troll Warlord": 1,
-    "Tusk": 1,
-    "Underlord": 1,
-    "Undying": 1,
-    "Ursa": 1,
-    "Vengeful Spirit": 1,
-    "Venomancer": 1,
-    "Viper": 1,
-    "Visage": 1,
-    "Void Spirit": 1,
-    "Warlock": 1,
-    "Weaver": 1,
-    "Windranger": 1,
-    "Winter Wyvern": 1,
-    "Witch Doctor": 1,
-    "Wraith King": 1,
-    "Zeus": 1
+    "abaddon": {
+        "preference": 1
+    },
+    "alchemist": {
+        "preference": 1
+    },
+    "ancient_apparition": {
+        "preference": 1
+    },
+    "anti_mage": {
+        "preference": 1
+    },
+    "arc_warden": {
+        "preference": 1
+    },
+    "axe": {
+        "preference": 1
+    },
+    "bane": {
+        "preference": 1
+    },
+    "batrider": {
+        "preference": 1
+    },
+    "beastmaster": {
+        "preference": 1
+    },
+    "bloodseeker": {
+        "preference": 1
+    },
+    "bounty_hunter": {
+        "preference": 1
+    },
+    "brewmaster": {
+        "preference": 1
+    },
+    "bristleback": {
+        "preference": 1
+    },
+    "broodmother": {
+        "preference": 1
+    },
+    "centaur_warrunner": {
+        "preference": 1
+    },
+    "chaos_knight": {
+        "preference": 1
+    },
+    "chen": {
+        "preference": 1
+    },
+    "clinkz": {
+        "preference": 1
+    },
+    "clockwerk": {
+        "preference": 1
+    },
+    "crystal_maiden": {
+        "preference": 1
+    },
+    "dark_seer": {
+        "preference": 1
+    },
+    "dark_willow": {
+        "preference": 1
+    },
+    "dazzle": {
+        "preference": 1
+    },
+    "death_prophet": {
+        "preference": 1
+    },
+    "disruptor": {
+        "preference": 1
+    },
+    "doom": {
+        "preference": 1
+    },
+    "dragon_knight": {
+        "preference": 1
+    },
+    "drow_ranger": {
+        "preference": 1
+    },
+    "earth_spirit": {
+        "preference": 1
+    },
+    "earthshaker": {
+        "preference": 1
+    },
+    "elder_titan": {
+        "preference": 1
+    },
+    "ember_spirit": {
+        "preference": 1
+    },
+    "enchantress": {
+        "preference": 1
+    },
+    "enigma": {
+        "preference": 1
+    },
+    "faceless_void": {
+        "preference": 1
+    },
+    "grimstroke": {
+        "preference": 1
+    },
+    "gyrocopter": {
+        "preference": 1
+    },
+    "huskar": {
+        "preference": 1
+    },
+    "invoker": {
+        "preference": 1
+    },
+    "io": {
+        "preference": 1
+    },
+    "jakiro": {
+        "preference": 1
+    },
+    "juggernaut": {
+        "preference": 1
+    },
+    "keeper_of_the_light": {
+        "preference": 1
+    },
+    "kunkka": {
+        "preference": 1
+    },
+    "legion_commander": {
+        "preference": 1
+    },
+    "leshrac": {
+        "preference": 1
+    },
+    "lich": {
+        "preference": 1
+    },
+    "lifestealer": {
+        "preference": 1
+    },
+    "lina": {
+        "preference": 1
+    },
+    "lion": {
+        "preference": 1
+    },
+    "lone_druid": {
+        "preference": 1
+    },
+    "luna": {
+        "preference": 1
+    },
+    "lycan": {
+        "preference": 1
+    },
+    "magnus": {
+        "preference": 1
+    },
+    "mars": {
+        "preference": 1
+    },
+    "medusa": {
+        "preference": 1
+    },
+    "meepo": {
+        "preference": 1
+    },
+    "mirana": {
+        "preference": 1
+    },
+    "monkey_king": {
+        "preference": 1
+    },
+    "morphling": {
+        "preference": 1
+    },
+    "naga_siren": {
+        "preference": 1
+    },
+    "natures_prophet": {
+        "preference": 1
+    },
+    "necrophos": {
+        "preference": 1
+    },
+    "night_stalker": {
+        "preference": 1
+    },
+    "nyx_assassin": {
+        "preference": 1
+    },
+    "ogre_magi": {
+        "preference": 1
+    },
+    "omniknight": {
+        "preference": 1
+    },
+    "oracle": {
+        "preference": 1
+    },
+    "outworld_devourer": {
+        "preference": 1
+    },
+    "pangolier": {
+        "preference": 1
+    },
+    "phantom_assassin": {
+        "preference": 1
+    },
+    "phantom_lancer": {
+        "preference": 1
+    },
+    "phoenix": {
+        "preference": 1
+    },
+    "puck": {
+        "preference": 1
+    },
+    "pudge": {
+        "preference": 1
+    },
+    "pugna": {
+        "preference": 1
+    },
+    "queen_of_pain": {
+        "preference": 1
+    },
+    "razor": {
+        "preference": 1
+    },
+    "riki": {
+        "preference": 1
+    },
+    "rubick": {
+        "preference": 1
+    },
+    "sand_king": {
+        "preference": 1
+    },
+    "shadow_demon": {
+        "preference": 1
+    },
+    "shadow_fiend": {
+        "preference": 1
+    },
+    "shadow_shaman": {
+        "preference": 1
+    },
+    "silencer": {
+        "preference": 1
+    },
+    "skywrath_mage": {
+        "preference": 1
+    },
+    "slardar": {
+        "preference": 1
+    },
+    "slark": {
+        "preference": 1
+    },
+    "snapfire": {
+        "preference": 1
+    },
+    "sniper": {
+        "preference": 1
+    },
+    "spectre": {
+        "preference": 1
+    },
+    "spirit_breaker": {
+        "preference": 1
+    },
+    "storm_spirit": {
+        "preference": 1
+    },
+    "sven": {
+        "preference": 1
+    },
+    "techies": {
+        "preference": 1
+    },
+    "templar_assassin": {
+        "preference": 1
+    },
+    "terrorblade": {
+        "preference": 1
+    },
+    "tidehunter": {
+        "preference": 1
+    },
+    "timbersaw": {
+        "preference": 1
+    },
+    "tinker": {
+        "preference": 1
+    },
+    "tiny": {
+        "preference": 1
+    },
+    "treant_protector": {
+        "preference": 1
+    },
+    "troll_warlord": {
+        "preference": 1
+    },
+    "tusk": {
+        "preference": 1
+    },
+    "underlord": {
+        "preference": 1
+    },
+    "undying": {
+        "preference": 1
+    },
+    "ursa": {
+        "preference": 1
+    },
+    "vengeful_spirit": {
+        "preference": 1
+    },
+    "venomancer": {
+        "preference": 1
+    },
+    "viper": {
+        "preference": 1
+    },
+    "visage": {
+        "preference": 1
+    },
+    "void_spirit": {
+        "preference": 1
+    },
+    "warlock": {
+        "preference": 1
+    },
+    "weaver": {
+        "preference": 1
+    },
+    "windranger": {
+        "preference": 1
+    },
+    "winter_wyvern": {
+        "preference": 1
+    },
+    "witch_doctor": {
+        "preference": 1
+    },
+    "wraith_king": {
+        "preference": 1
+    },
+    "zeus": {
+        "preference": 1
+    }
 }

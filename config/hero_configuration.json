@@ -1,6 +1,5 @@
 {
     "abaddon":{
-        "preference": 1,
         "image_location": "",
         "positions": [3, 4],
         "crowd_control_tags": ["silence", "slow"],
@@ -8,7 +7,6 @@
         "attack_type": "melee"
     },
     "alchemist":{
-        "preference": 1,
         "image_location": "",
         "positions": [1, 2],
         "crowd_control_tags": ["stun"],
@@ -16,7 +14,6 @@
         "attack_type": "melee"
     },
     "ancient_apparition":{
-        "preference": 1,
         "image_location": "",
         "positions": [4, 5],
         "crowd_control_tags": ["stun", "instant_kill", "slow"],
@@ -24,7 +21,6 @@
         "attack_type": "ranged"
     },
     "anti_mage":{
-        "preference": 1,
         "image_location": "",
         "positions": [1],
         "crowd_control_tags": ["mana_burn", "mini-stun"],
@@ -32,7 +28,6 @@
         "attack_type": "melee"
     },
     "arc_warden":{
-        "preference": 1,
         "image_location": "",
         "positions": [1, 2],
         "crowd_control_tags": ["slow"],
@@ -40,7 +35,6 @@
         "attack_type": "ranged"
     },
     "axe":{
-        "preference": 1,
         "image_location": "",
         "positions": [3],
         "crowd_control_tags": ["taunt", "instant_kill", "slow"],
@@ -48,7 +42,6 @@
         "attack_type": "melee"
     },
     "bane":{
-        "preference": 1,
         "image_location": "",
         "positions": [4, 5],
         "crowd_control_tags": ["shackle", "sleep"],
@@ -56,12 +49,787 @@
         "attack_type": "ranged"
     },
     "batrider":{
-        "preference": 1,
         "image_location": "",
         "positions": [3],
         "crowd_control_tags": ["slow", "shackle", "forced_movement"],
         "primary_stat": "intelligence",
         "attack_type": "ranged"
+    },
+    "beastmaster":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "bloodseeker":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["silence"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "bounty_hunter":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["mini-stun"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "brewmaster":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["slow", "stun", "cyclone"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "bristleback":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "broodmother":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["blind", "slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "centaur_warrunner":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "chaos_knight":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "chen":{
+        "image_location": "",
+        "positions": [5],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "clinkz":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": [],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "clockwerk":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["mini-stun", "trap"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "crystal_maiden":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["slow", "root"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "dark_seer":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["forced_movement", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "dark_willow":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["root", "stun", "fear"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "dazzle":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "death_prophet":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["silence", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "disruptor":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["forced_movement", "trap"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "doom":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["mini-stun", "silence", "mute"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "dragon_knight":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "both"
+    },
+    "drow_ranger":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["forced_movement", "silence", "slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "earth_spirit":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["forced_movement", "silence"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "earthshaker":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["stun", "trap"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "elder_titan":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["sleep", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "ember_spirit":{
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["root"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "enchantress":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["slow", "dispel"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "enigma":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun", "shackle"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "faceless_void":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun", "shackle"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "grimstroke":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["silence", "slow", "stun", "trap"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "gyrocopter":{
+        "image_location": "",
+        "positions": [1, 2, 3],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "huskar":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["disarm"],
+        "primary_stat": "strength",
+        "attack_type": "ranged"
+    },
+    "invoker":{
+        "image_location": "",
+        "positions": [2, 4],
+        "crowd_control_tags": ["slow", "stun", "disarm", "cyclone", "mana_burn"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "io":{
+        "image_location": "",
+        "positions": [5],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "ranged"
+    },
+    "jakiro":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["slow", "stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "juggernaut":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": [],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "keeper_of_the_light":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["blind", "shackle", "forced_movement"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "kunkka":{
+        "image_location": "",
+        "positions": [2, 3, 4],
+        "crowd_control_tags": ["forced_movement", "stun"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "legion_commander":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["taunt"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "leshrac":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["slow", "stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "lich":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["hypnotize", "forced_movement", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "lifestealer":{
+        "image_location": "",
+        "positions": [1, 3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "lina":{
+        "image_location": "",
+        "positions": [2, 4],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "lion":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun", "hex", "mana_burn"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "lone_druid":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["fear", "root"],
+        "primary_stat": "agility",
+        "attack_type": "both"
+    },
+    "luna":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "lycan":{
+        "image_location": "",
+        "positions": [1, 3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "magnus":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["forced_movement", "slow", "stun"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "mars":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["stun", "forced_movement", "trap"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "medusa":{
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "meepo":{
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["root"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "mirana":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "monkey_king":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "morphling":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "naga_siren":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["root", "sleep"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "natures_prophet":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["trap"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "necrophos":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["stun", "instant_kill", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "night_stalker":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["silence", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "nyx_assassin":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun", "mana_burn", "break"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "ogre_magi":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "melee"
+    },
+    "omniknight":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "oracle":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["root", "dispel", "disarm"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "outworld_devourer":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["hide"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "pangolier":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["disarm", "stun", "slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "phantom_assassin":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "phantom_lancer":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "phoenix":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["slow", "stun"],
+        "primary_stat": "strength",
+        "attack_type": "ranged"
+    },
+    "puck":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["silence", "leash"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "pudge":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["shackle", "slow", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "pugna":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["ethereal", "mana_burn"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "queen_of_pain":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["slow", "forced_movement"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "razor":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "riki":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["silence", "blind"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "rubick":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "sand_king":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "shadow_demon":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["dispel"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "shadow_fiend":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["fear"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "shadow_shaman":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["hex", "shackle", "trap"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "silencer":{
+        "image_location": "",
+        "positions": [2, 3, 4],
+        "crowd_control_tags": ["silence", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "skywrath_mage":{
+        "image_location": "",
+        "positions": [2, 4, 5],
+        "crowd_control_tags": ["silence", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "slardar":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "slark":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["leash"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "snapfire":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "ranged"
+    },
+    "sniper":{
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["slow", "forced_movement"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "spectre":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "spirit_breaker":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "storm_spirit":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["forced_movement", "stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "sven":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "techies":{
+        "image_location": "",
+        "positions": [5],
+        "crowd_control_tags": ["root", "silence"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "templar_assassin":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "terrorblade":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": [],
+        "primary_stat": "agility",
+        "attack_type": "both"
+    },
+    "tidehunter":{
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "timbersaw":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "tinker":{
+        "image_location": "",
+        "positions": [2],
+        "crowd_control_tags": ["blind"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "tiny":{
+        "image_location": "",
+        "positions": [2, 3, 4],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "treant_protector":{
+        "image_location": "",
+        "positions": [3, 4, 5],
+        "crowd_control_tags": ["slow", "root"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "troll_warlord":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["root", "slow", "blind"],
+        "primary_stat": "agility",
+        "attack_type": "both"
+    },
+    "tusk":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["stun", "trap", "forced_movement"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "underlord":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["root"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "undying":{
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "ursa":{
+        "image_location": "",
+        "positions": [1, 3],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "vengeful_spirit":{
+        "image_location": "",
+        "positions": [1, 3, 4, 5],
+        "crowd_control_tags": ["stun", "forced_movement"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "venomancer":{
+        "image_location": "",
+        "positions": [2, 4],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "viper":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["slow", "break", "silence"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "visage":{
+        "image_location": "",
+        "positions": [2, 3, 4],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "void_spirit":{
+        "image_location": "",
+        "positions": [2, 3],
+        "crowd_control_tags": ["hypnotize"],
+        "primary_stat": "intelligence",
+        "attack_type": "melee"
+    },
+    "warlock":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "weaver":{
+        "image_location": "",
+        "positions": [1, 3],
+        "crowd_control_tags": [],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "windranger":{
+        "image_location": "",
+        "positions": [2, 4],
+        "crowd_control_tags": ["shackle", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "winter_wyvern":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["taunt", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "witch_doctor":{
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "wraith_king":{
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["stun", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "zeus":{
+        "image_location": "",
+        "positions": [2, 4],
+        "crowd_control_tags": ["mini-stun"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
     }
-
 }
