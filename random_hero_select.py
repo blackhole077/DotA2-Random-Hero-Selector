@@ -13,6 +13,10 @@
 import os
 import sys
 import numpy as np
+from scipy.special import softmax
+import pandas as pd
+from json import load
+from typing import List, TypedDict, Optional
 
 def open_file(filename, verbose=False):
     '''Attempts to open the file and parse it to convert <Hero_Name, Desire to Play> lines into
@@ -34,32 +38,67 @@ def open_file(filename, verbose=False):
         print('Number of entries (weights): {} entries'.format(len(weights)))
     return name_list, weights
 
-def create_weighted_list(name_list, weight_list, verbose=False):
-    '''Given a name list and its corresponding weight list, create
-       a weighted name list which will be sampled with uniform randomness.
-    '''
-    weighted_name_list = []
-    for i in range(len(name_list)):
-        num_duplicate = int(weight_list[i])
-        if num_duplicate > 1:
-            weighted_name_list.extend([name_list[i] for j in range(num_duplicate)])
-        else:
-            continue
-        if verbose:
-            print('Number of times duplicated: {} times'.format(num_duplicate))
-    return weighted_name_list
+def create_probability_list(preference_list: List[int]) -> 'numpy.array':
+    """
+        Generate a weighted list based on preferences.
+
+        Generates a probability distribution based on
+        the softmax function to transform discrete values
+        into a probability distribution that sums to 1.0
+
+        Parameters
+        ----------
+        preference_list: List[int]
+            A list of preference values ranging from 1 to 4.
+            This list must match the number of desired heroes.
+        
+        Returns
+        -------
+        weighted_probabilities: np.array(float)
+            A list of real-value probabilities generated via
+            the softmax function. All values will sum to 1.
+    """
+
+    return softmax(preference_list)
+
+def generate_hero_dataframe(preference_location: str, configuration_location:str) -> 'pandas.DataFrame':
+    """
+        Generate a dataframe that contains all user-specified data.
+
+        Using the user-defined preference JSON file and the configuration
+        file that contains semi-static information regarding each hero,
+        generate a Dataframe to use while the program is active.
+
+        NOTE: Since Pandas is prone to memory leakage, try not to call
+        this function multiple times. If anything, it should only be
+        used once total.
+
+        Parameters
+        ----------
+        preference_location: str
+            The name of the JSON file that contains the preferences for
+            each hero in DotA 2.
+        configuration_location: str
+            The name of the JSON file that contains the basic information
+            about each hero in DotA 2, such as primary attribute and attack type.
+
+        Returns
+        -------
+        hero_dataframe: pandas.DataFrame
+            A DataFrame object that contains all information in both files.
+    """
+    combined_dict = {}
+    with open(preference_location, 'r') as _preference_file:
+        combined_dict.update(load(_preference_file))
+    with open(configuration_location, 'r') as _config_file:
+        combined_dict.update(load(_config_file))
+    return pd.DataFrame.from_dict(combined_dict)
 
 def main():
     '''The main function for rolling (and re-rolling) a random hero
        according to your weighted preferences.
     '''
-    hero_name_list, weights_list = open_file("hero_list.txt", False)
-    weighted_hero_list = create_weighted_list(hero_name_list, weights_list, False)
-    print(np.random.choice(weighted_hero_list, 1))
-    choice = input("Press Enter to re-roll or q to quit...")
-    while choice != 'q':
-        if not choice:
-            print(np.random.choice(weighted_hero_list, 1))
-        choice = input("Press Enter to re-roll or q to quit...")
-
-main()
+    # TODO: Write call for converting JSON files into DataFrame
+    # TODO: Test that weighted random via softmax works as intended
+    # TODO: Write this main function as a callback on start for tkinter
+    pass

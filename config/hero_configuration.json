@@ -1,0 +1,67 @@
+{
+    "abaddon":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [3, 4],
+        "crowd_control_tags": ["silence", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "alchemist":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["stun"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "ancient_apparition":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["stun", "instant_kill", "slow"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "anti_mage":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [1],
+        "crowd_control_tags": ["mana_burn", "mini-stun"],
+        "primary_stat": "agility",
+        "attack_type": "melee"
+    },
+    "arc_warden":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [1, 2],
+        "crowd_control_tags": ["slow"],
+        "primary_stat": "agility",
+        "attack_type": "ranged"
+    },
+    "axe":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["taunt", "instant_kill", "slow"],
+        "primary_stat": "strength",
+        "attack_type": "melee"
+    },
+    "bane":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [4, 5],
+        "crowd_control_tags": ["shackle", "sleep"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    },
+    "batrider":{
+        "preference": 1,
+        "image_location": "",
+        "positions": [3],
+        "crowd_control_tags": ["slow", "shackle", "forced_movement"],
+        "primary_stat": "intelligence",
+        "attack_type": "ranged"
+    }
+
+}
