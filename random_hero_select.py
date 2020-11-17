@@ -70,7 +70,7 @@ class RandomHeroSelectManager:
         self.available_images = [f for f in os.listdir('images/') if os.path.isfile(os.path.join('images/', f))]
         with open("config/gui_filter_configuration.json", 'r') as _file:
             self.gui_config = load(_file)
-        self.hero_dataframe:'pandas.DataFrame' = self.generate_hero_dataframe(preference_location, configuration_location)
+        self.hero_dataframe:'pd.DataFrame' = self.generate_hero_dataframe(preference_location, configuration_location)
         self.mask = None
         # Set the filtered to be equal to the original
         self.filtered_dataframe = self.hero_dataframe
@@ -324,7 +324,7 @@ class RandomHeroSelectManager:
         # Open the image and resize it to the default size (width: 235px, height: 272px) as some images are larger.
         return ImageTk.PhotoImage(image.resize(size=(235, 272)))
 
-    def generate_probability_list(self) -> 'numpy.array':
+    def generate_probability_list(self) -> 'np.array':
         """
             Generate a weighted list based on preferences.
 
@@ -348,7 +348,7 @@ class RandomHeroSelectManager:
         preference_list = self.filtered_dataframe['preference'].values
         return softmax(preference_list)
 
-    def generate_hero_dataframe(self, preference_location: str, configuration_location:str) -> 'pandas.DataFrame':
+    def generate_hero_dataframe(self, preference_location: str, configuration_location:str) -> 'pd.DataFrame':
         """
             Generate a dataframe that contains all user-specified data.
 

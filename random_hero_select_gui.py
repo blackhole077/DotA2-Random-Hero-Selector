@@ -24,7 +24,7 @@ class Checkbar(tk.Frame):
 
         Parameters
         ----------
-        parent: 'tkinter.Frame'
+        parent: 'tk.Frame'
             The parent container or component the Checkbar is attached to.
         labels: List[str]
             The list of labels for the checkboxes.
@@ -38,7 +38,7 @@ class Checkbar(tk.Frame):
         None.
     """
 
-    def __init__(self, parent:'tkinter.Frame', labels:List[str], max_per_row: int=5) -> None:
+    def __init__(self, parent:'tk.Frame', labels:List[str], max_per_row: int=5) -> None:
         tk.Frame.__init__(self, parent)
         self.vars = []
         self.labels = labels
@@ -138,7 +138,7 @@ class HeroPortrait:
         None.
     """
 
-    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas']) -> None:
+    def __init__(self, parent: Union['tk.Frame', 'tk.Canvas']) -> None:
         self.current_image = ImageTk.PhotoImage(Image.open('images/default_vert.jpg'))
         self.photo_placeholder = tk.Label(parent, image=self.current_image)
         self.photo_placeholder.image = self.current_image
@@ -164,7 +164,7 @@ class FilterGUI:
 
         Parameters
         ----------
-        parent: Union['tkinter.Frame', 'tkinter.Canvas']
+        parent: Union['tk.Frame', 'tk.Canvas']
             The parent container or component the FilterPanel is attached to.
         filter_name: str
             The name of the filter. Should correspond to some value present
@@ -177,7 +177,7 @@ class FilterGUI:
         None.
     """
 
-    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas'], filter_name: str, filter_values: List[str]) -> None:
+    def __init__(self, parent: Union['tk.Frame', 'tk.Canvas'], filter_name: str, filter_values: List[str]) -> None:
         self.filter_parent = tk.Frame(parent, bg='grey')
         name = filter_name.replace('_', ' ').title()
         self.filter_parent_label = tk.Label(self.filter_parent, text=f"Filter by {name}")
@@ -213,7 +213,7 @@ class FilterPanel:
         
         Parameters
         ----------
-        parent: Union['tkinter.Frame', 'tkinter.Canvas']
+        parent: Union['tk.Frame', 'tk.Canvas']
             The parent container or component the FilterPanel is attached to.
         filter_dict: Dict[str, List[str]]
             The data structure used to populate the text and values for the filters
@@ -227,7 +227,7 @@ class FilterPanel:
         None.
     """
 
-    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas'], filter_dict: Dict[str, List[str]], logic_layer: RandomHeroSelectManager) -> None:
+    def __init__(self, parent: Union['tk.Frame', 'tk.Canvas'], filter_dict: Dict[str, List[str]], logic_layer: RandomHeroSelectManager) -> None:
         self.filter_parent = tk.ttk.Labelframe(parent, text='Filters')
         self.filters = {}
         # Generate FilterGUIs for each filter specified
