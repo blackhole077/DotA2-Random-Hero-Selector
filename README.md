@@ -40,11 +40,16 @@ Overall, the personal goals for this project was to **demonstrate good coding pr
 
 ## Future Works and Directions
 
-Currently (11/15/20) this project is only partially finished. With only the basic functionality in place, end-users are unable to do more than provide user-defined hero preference lists and select random heroes. Below are things that are slated as "future work".
+Currently the project contains all basic functionality, including ad-hoc filtering. However, there are additional features that could be introduced should there be additional demand for it.
 
-### Adding ad-hoc filtering functionality
+### Hiding the filter panel
 
-As of now, the callback functions are in place to filter the hero pool, but the GUI sub-components have not been created. Due to how Tkinter handles placing GUI components, having the panel match the intended design will take time.
+As of right now, the filter panel is somewhat unwieldy, consuming more than 2/3 the available GUI space. As such, a feature that could be implemented is some sort of button or command that
+effectively "hides" the panel at the end-users' discretion.
+
+### A file menu for selecting new hero preference lists
+
+While there is a default hero list that can be modified directly for adjusting preference values, completely new lists of heroes cannot be hot-swapped easily, requiring the end-user to instead dive into the source code itself to make such changes. Therefore, adding a menu bar with some window dialog would alleviate this situation.
 
 ### Unit Testing
 
