@@ -54,7 +54,7 @@ It is strongly recommended that a **virtual environment** is used if you intend 
 
 ## How to Run the Program
 
-The program assumes that your using `Python 3.5+`, which can be determined by either typing in `python --version` or `python3 --version`.
+The program assumes that you're using `Python 3.5+`, which can be determined by either typing in `python --version` or `python3 --version`.
 
 To run the program, simply navigate to the directory that houses this repository and type in the following command: `python random_hero_select_gui.py` or `python3 random_hero_select_gui.py`
 
