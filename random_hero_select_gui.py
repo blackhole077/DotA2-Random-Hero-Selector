@@ -14,11 +14,16 @@ class Checkbar(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.vars = []
         self.labels = picks
-
-        for pick in picks:
+        row = 0
+        column = 0
+        for index, pick in enumerate(picks):
+            if index % 7 == 0:
+                row += 1
+                column = 0
             var = tk.IntVar()
             chk = tk.Checkbutton(self, text=pick.capitalize(), variable=var)
-            chk.pack(side=side, anchor=anchor, expand="yes")
+            chk.grid(row=row, column=column)
+            column += 1
             self.vars.append(var)
     
     def state(self):
