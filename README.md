@@ -38,6 +38,26 @@ For personal expectations regarding this project, I include the following expect
 
 Overall, the personal goals for this project was to **demonstrate good coding practices in a simple project**.
 
+## Required Packages and Libraries
+
+The following libraries are necessary to ensure that the program runs properly.
+
+- `Python3` (specifically `Python 3.5+`)
+- `scipy.special`
+- `numpy`
+- `pandas`
+- `PIL (Python Imaging Library)`
+
+Other libraries (e.g., `tkinter`) are assumed to be builtin libraries for Python.
+
+It is strongly recommended that a **virtual environment** is used if you intend to develop this work further. Examples of Python virtual environments include **venv** and **Anaconda**.
+
+## How to Run the Program
+
+The program assumes that your using `Python 3.5+`, which can be determined by either typing in `python --version` or `python3 --version`.
+
+To run the program, simply navigate to the directory that houses this repository and type in the following command: `python random_hero_select_gui.py` or `python3 random_hero_select_gui.py`
+
 ## Future Works and Directions
 
 Currently the project contains all basic functionality, including ad-hoc filtering. However, there are additional features that could be introduced should there be additional demand for it.
