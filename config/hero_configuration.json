@@ -1,835 +1,835 @@
 {
     "abaddon":{
         "image_prefix": "abaddon",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["silence", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "alchemist":{
         "image_prefix": "alchemist",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "ancient_apparition":{
         "image_prefix": "ancient_apparition",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "instant_kill", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "antimage":{
         "image_prefix": "antimage",
-        "positions": [1],
-        "crowd_control_tags": ["mana_burn", "mini-stun"],
-        "primary_stat": "agility",
+        "positions": ["carry"],
+        "crowd_control_tags": ["mana_burn", "mini_stun"],
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "arc_warden":{
         "image_prefix": "arc_warden",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "axe":{
         "image_prefix": "axe",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["taunt", "instant_kill", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "bane":{
         "image_prefix": "bane",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["shackle", "sleep"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "batrider":{
         "image_prefix": "batrider",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["slow", "shackle", "forced_movement"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "beastmaster":{
         "image_prefix": "beastmaster",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "bloodseeker":{
         "image_prefix": "bloodseeker",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["silence"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "bounty_hunter":{
         "image_prefix": "bounty_hunter",
-        "positions": [3, 4],
-        "crowd_control_tags": ["mini-stun"],
-        "primary_stat": "agility",
+        "positions": ["offlane", "soft_support"],
+        "crowd_control_tags": ["mini_stun"],
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "brewmaster":{
         "image_prefix": "brewmaster",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["slow", "stun", "cyclone"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "bristleback":{
         "image_prefix": "bristleback",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "broodmother":{
         "image_prefix": "broodmother",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["blind", "slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "centaur_warrunner":{
         "image_prefix": "centaur",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "chaos_knight":{
         "image_prefix": "chaos_knight",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "chen":{
         "image_prefix": "chen",
-        "positions": [5],
+        "positions": ["hard_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "clinkz":{
         "image_prefix": "clinkz",
-        "positions": [1],
-        "crowd_control_tags": [],
-        "primary_stat": "agility",
+        "positions": ["carry"],
+        "crowd_control_tags": ["none"],
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "clockwerk":{
         "image_prefix": "rattletrap",
-        "positions": [3, 4],
-        "crowd_control_tags": ["mini-stun", "trap"],
-        "primary_stat": "strength",
+        "positions": ["offlane", "soft_support"],
+        "crowd_control_tags": ["mini_stun", "trap"],
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "crystal_maiden":{
         "image_prefix": "crystal_maiden",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["slow", "root"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "dark_seer":{
         "image_prefix": "dark_seer",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["forced_movement", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "dark_willow":{
         "image_prefix": "dark_willow",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["root", "stun", "fear"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "dazzle":{
         "image_prefix": "dazzle",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "death_prophet":{
         "image_prefix": "death_prophet",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["silence", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "disruptor":{
         "image_prefix": "disruptor",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["forced_movement", "trap"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "doom":{
         "image_prefix": "doom_bringer",
-        "positions": [3],
-        "crowd_control_tags": ["mini-stun", "silence", "mute"],
-        "primary_stat": "strength",
+        "positions": ["offlane"],
+        "crowd_control_tags": ["mini_stun", "silence", "mute"],
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "dragon_knight":{
         "image_prefix": "dragon_knight",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "both"
     },
     "drow_ranger":{
         "image_prefix": "drow_ranger",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["forced_movement", "silence", "slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "earth_spirit":{
         "image_prefix": "earth_spirit",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["forced_movement", "silence"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "earthshaker":{
         "image_prefix": "earthshaker",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "trap"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "elder_titan":{
         "image_prefix": "elder_titan",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["sleep", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "ember_spirit":{
         "image_prefix": "ember_spirit",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["root"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "enchantress":{
         "image_prefix": "enchantress",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["slow", "dispel"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "enigma":{
         "image_prefix": "enigma",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun", "shackle"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "faceless_void":{
         "image_prefix": "faceless_void",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun", "shackle"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "grimstroke":{
         "image_prefix": "grimstroke",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["silence", "slow", "stun", "trap"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "gyrocopter":{
         "image_prefix": "gyrocopter",
-        "positions": [1, 2, 3],
+        "positions": ["carry", "mid_core", "offlane"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "huskar":{
         "image_prefix": "huskar",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["disarm"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "ranged"
     },
     "invoker":{
         "image_prefix": "invoker",
-        "positions": [2, 4],
+        "positions": ["mid_core", "soft_support"],
         "crowd_control_tags": ["slow", "stun", "disarm", "cyclone", "mana_burn"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "io":{
         "image_prefix": "wisp",
-        "positions": [5],
+        "positions": ["hard_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "ranged"
     },
     "jakiro":{
         "image_prefix": "jakiro",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["slow", "stun"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "juggernaut":{
         "image_prefix": "juggernaut",
-        "positions": [1],
-        "crowd_control_tags": [],
-        "primary_stat": "agility",
+        "positions": ["carry"],
+        "crowd_control_tags": ["none"],
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "keeper_of_the_light":{
         "image_prefix": "keeper_of_the_light",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["blind", "shackle", "forced_movement"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "kunkka":{
         "image_prefix": "kunkka",
-        "positions": [2, 3, 4],
+        "positions": ["mid_core", "offlane", "soft_support"],
         "crowd_control_tags": ["forced_movement", "stun"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "legion_commander":{
         "image_prefix": "legion_commander",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["taunt"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "leshrac":{
         "image_prefix": "leshrac",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["slow", "stun"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "lich":{
         "image_prefix": "lich",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["hypnotize", "forced_movement", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "lifestealer":{
         "image_prefix": "life_stealer",
-        "positions": [1, 3],
+        "positions": ["carry", "offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "lina":{
         "image_prefix": "lina",
-        "positions": [2, 4],
+        "positions": ["mid_core", "soft_support"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "lion":{
         "image_prefix": "lion",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "hex", "mana_burn"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "lone_druid":{
         "image_prefix": "lone_druid",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["fear", "root"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "both"
     },
     "luna":{
         "image_prefix": "luna",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "lycan":{
         "image_prefix": "lycan",
-        "positions": [1, 3],
+        "positions": ["carry", "offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "magnus":{
         "image_prefix": "magnataur",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["forced_movement", "slow", "stun"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "mars":{
         "image_prefix": "mars",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["stun", "forced_movement", "trap"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "medusa":{
         "image_prefix": "medusa",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "meepo":{
         "image_prefix": "meepo",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["root"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "mirana":{
         "image_prefix": "mirana",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "monkey_king":{
         "image_prefix": "monkey_king",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "morphling":{
         "image_prefix": "morphling",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "naga_siren":{
         "image_prefix": "naga_siren",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["root", "sleep"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "natures_prophet":{
         "image_prefix": "furion",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["trap"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "necrophos":{
         "image_prefix": "necrolyte",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["stun", "instant_kill", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "night_stalker":{
         "image_prefix": "night_stalker",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["silence", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "nyx_assassin":{
         "image_prefix": "nyx_assassin",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun", "mana_burn", "break"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "ogre_magi":{
         "image_prefix": "ogre_magi",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "melee"
     },
     "omniknight":{
         "image_prefix": "omniknight",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "oracle":{
         "image_prefix": "oracle",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["root", "dispel", "disarm"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "outworld_devourer":{
         "image_prefix": "obsidian_destroyer",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["hide"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "pangolier":{
         "image_prefix": "pangolier",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["disarm", "stun", "slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "phantom_assassin":{
         "image_prefix": "phantom_assassin",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "phantom_lancer":{
         "image_prefix": "phantom_lancer",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "phoenix":{
         "image_prefix": "phoenix",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["slow", "stun"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "ranged"
     },
     "puck":{
         "image_prefix": "puck",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["silence", "leash"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "pudge":{
         "image_prefix": "pudge",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["shackle", "slow", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "pugna":{
         "image_prefix": "pugna",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["ethereal", "mana_burn"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "queen_of_pain":{
         "image_prefix": "queenofpain",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["slow", "forced_movement"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "razor":{
         "image_prefix": "razor",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "riki":{
         "image_prefix": "riki",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["silence", "blind"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "rubick":{
         "image_prefix": "rubick",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "sand_king":{
         "image_prefix": "sand_king",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "shadow_demon":{
         "image_prefix": "shadow_demon",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["dispel"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "shadow_fiend":{
         "image_prefix": "nevermore",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["fear"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "shadow_shaman":{
         "image_prefix": "shadow_shaman",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["hex", "shackle", "trap"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "silencer":{
         "image_prefix": "silencer",
-        "positions": [2, 3, 4],
+        "positions": ["mid_core", "offlane", "soft_support"],
         "crowd_control_tags": ["silence", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "skywrath_mage":{
         "image_prefix": "skywrath_mage",
-        "positions": [2, 4, 5],
+        "positions": ["mid_core", "soft_support", "hard_support"],
         "crowd_control_tags": ["silence", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "slardar":{
         "image_prefix": "slardar",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "slark":{
         "image_prefix": "slark",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["leash"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "snapfire":{
         "image_prefix": "snapfire",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "ranged"
     },
     "sniper":{
         "image_prefix": "sniper",
-        "positions": [1, 2],
+        "positions": ["carry", "mid_core"],
         "crowd_control_tags": ["slow", "forced_movement"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "spectre":{
         "image_prefix": "spectre",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "spirit_breaker":{
         "image_prefix": "spirit_breaker",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "storm_spirit":{
         "image_prefix": "storm_spirit",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["forced_movement", "stun"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "sven":{
         "image_prefix": "sven",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "techies":{
         "image_prefix": "techies",
-        "positions": [5],
+        "positions": ["hard_support"],
         "crowd_control_tags": ["root", "silence"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "templar_assassin":{
         "image_prefix": "templar_assassin",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "terrorblade":{
         "image_prefix": "terrorblade",
-        "positions": [1],
-        "crowd_control_tags": [],
-        "primary_stat": "agility",
+        "positions": ["carry"],
+        "crowd_control_tags": ["none"],
+        "primary_attribute": "agility",
         "attack_type": "both"
     },
     "tidehunter":{
         "image_prefix": "tidehunter",
-        "positions": [3],
+        "positions": ["offlane"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "timbersaw":{
         "image_prefix": "shredder",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "tinker":{
         "image_prefix": "tinker",
-        "positions": [2],
+        "positions": ["mid_core"],
         "crowd_control_tags": ["blind"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "tiny":{
         "image_prefix": "tiny",
-        "positions": [2, 3, 4],
+        "positions": ["mid_core", "offlane", "soft_support"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "treant_protector":{
         "image_prefix": "treant",
-        "positions": [3, 4, 5],
+        "positions": ["offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["slow", "root"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "troll_warlord":{
         "image_prefix": "troll_warlord",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["root", "slow", "blind"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "both"
     },
     "tusk":{
         "image_prefix": "tusk",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["stun", "trap", "forced_movement"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "underlord":{
         "image_prefix": "abyssal_underlord",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["root"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "undying":{
         "image_prefix": "undying",
-        "positions": [3, 4],
+        "positions": ["offlane", "soft_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "ursa":{
         "image_prefix": "ursa",
-        "positions": [1, 3],
+        "positions": ["carry", "offlane"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "melee"
     },
     "vengeful_spirit":{
         "image_prefix": "vengefulspirit",
-        "positions": [1, 3, 4, 5],
+        "positions": ["carry", "offlane", "soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "forced_movement"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "venomancer":{
         "image_prefix": "venomancer",
-        "positions": [2, 4],
+        "positions": ["mid_core", "soft_support"],
         "crowd_control_tags": ["slow"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "viper":{
         "image_prefix": "viper",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["slow", "break", "silence"],
-        "primary_stat": "agility",
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "visage":{
         "image_prefix": "visage",
-        "positions": [2, 3, 4],
+        "positions": ["mid_core", "offlane", "soft_support"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "void_spirit":{
         "image_prefix": "void_spirit",
-        "positions": [2, 3],
+        "positions": ["mid_core", "offlane"],
         "crowd_control_tags": ["hypnotize"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "melee"
     },
     "warlock":{
         "image_prefix": "warlock",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "weaver":{
         "image_prefix": "weaver",
-        "positions": [1, 3],
-        "crowd_control_tags": [],
-        "primary_stat": "agility",
+        "positions": ["carry", "offlane"],
+        "crowd_control_tags": ["none"],
+        "primary_attribute": "agility",
         "attack_type": "ranged"
     },
     "windranger":{
         "image_prefix": "windrunner",
-        "positions": [2, 4],
+        "positions": ["mid_core", "soft_support"],
         "crowd_control_tags": ["shackle", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "winter_wyvern":{
         "image_prefix": "winter_wyvern",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["taunt", "slow"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "witch_doctor":{
         "image_prefix": "witch_doctor",
-        "positions": [4, 5],
+        "positions": ["soft_support", "hard_support"],
         "crowd_control_tags": ["stun"],
-        "primary_stat": "intelligence",
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     },
     "wraith_king":{
         "image_prefix": "skeleton_king",
-        "positions": [1],
+        "positions": ["carry"],
         "crowd_control_tags": ["stun", "slow"],
-        "primary_stat": "strength",
+        "primary_attribute": "strength",
         "attack_type": "melee"
     },
     "zeus":{
         "image_prefix": "zuus",
-        "positions": [2, 4],
-        "crowd_control_tags": ["mini-stun"],
-        "primary_stat": "intelligence",
+        "positions": ["mid_core", "soft_support"],
+        "crowd_control_tags": ["mini_stun"],
+        "primary_attribute": "intelligence",
         "attack_type": "ranged"
     }
 }

@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from io import BytesIO
-from typing import Union
+from typing import Union, Dict, List
 
 import requests
 from PIL import Image, ImageTk
@@ -9,6 +9,27 @@ from PIL import Image, ImageTk
 from random_hero_select import \
     RandomHeroSelectManager as RandomHeroSelectManager
 
+class Checkbar(tk.Frame):
+    def __init__(self, parent=None, picks=None, side="left", anchor="w"):
+        tk.Frame.__init__(self, parent)
+        self.vars = []
+        self.labels = picks
+
+        for pick in picks:
+            var = tk.IntVar()
+            chk = tk.Checkbutton(self, text=pick.capitalize(), variable=var)
+            chk.pack(side=side, anchor=anchor, expand="yes")
+            self.vars.append(var)
+    
+    def state(self):
+        return map((lambda var: var.get()), self.vars)
+    
+    def clear(self):
+        for var in self.vars:
+            var.set(0)
+
+    def fetch_selected_labels(self):
+        return  [value for (value, filter) in zip(self.labels, [var.get() for var in self.vars]) if filter]
 
 class HeroPortrait:
     """
@@ -54,19 +75,31 @@ class HeroPortrait:
         self.photo_label.pack(padx=(10, 10), pady=(10, 10))
 
 class FilterGui:
-    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas']) -> None:
-        self.filter_parent = tk.ttk.Labelframe(parent, text='Filters')
-        self.upper_filter = tk.Frame(self.filter_parent, bg='grey')
-        self.upper_filter_label = tk.Label(self.upper_filter, text="Upper Filter Section")
+    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas'], filter_name: str, filter_values: List[str]) -> None:
+        self.upper_filter = tk.Frame(parent, bg='grey')
+        name = filter_name.replace('_', ' ').title()
+        self.upper_filter_label = tk.Label(self.upper_filter, text=f"Filter by {name}")
         self.upper_filter.pack(side='top')
         self.upper_filter_label.pack(side='top')
-        self.lower_filter = tk.Frame(self.filter_parent, bg='green')
-        self.lower_filter_label = tk.Label(self.lower_filter, text="Lower Filter Section")
-        s = tk.ttk.Separator(self.lower_filter, orient=tk.HORIZONTAL)
+        self.checkboxes = Checkbar(parent, filter_values)
+        self.checkboxes.pack()
+        s = tk.ttk.Separator(self.upper_filter, orient=tk.HORIZONTAL)
         s.pack()
-        self.lower_filter.pack(side='bottom')
-        self.lower_filter_label.pack(side='top')
-        self.filter_parent.pack(padx=(10, 10), pady=(10, 10))
+
+class FilterPanel:
+    def __init__(self, parent: Union['tkinter.Frame', 'tkinter.Canvas'], filter_dict: Dict[str, List[str]], logic_layer: RandomHeroSelectManager):
+        self.filter_parent = tk.ttk.Labelframe(parent, text='Filters')
+        self.filters = {}
+        for key, value in filter_dict.items():
+            filter = FilterGui(self.filter_parent, key, value)
+            self.filters[key] = filter.checkboxes
+        self.filter_button_frame = tk.Frame(parent)
+        self.filter_application_button = tk.Button(self.filter_button_frame, text='Apply Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_generate_masks(self.filters))
+        self.filter_clear_button = tk.Button(self.filter_button_frame, text='Clear Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_clear_masks(self.filters))
+        self.filter_application_button.pack(side='left')
+        self.filter_clear_button.pack(side='right')
+        self.filter_parent.pack(side='top', padx=(10, 10), pady=(10, 10))
+        self.filter_button_frame.pack(side='bottom', padx=(10, 10), pady=(10, 10))
 
 class RandomHeroSelectGui:
     """
@@ -131,7 +164,7 @@ class RandomHeroSelectGui:
         self.random_button.config(relief=tk.RAISED)
         # Pack the button towards the bottom of the hero_portait frame (bottom-left) with padding.
         self.random_button.pack(side='bottom', padx=(10, 10), pady=(10, 10))
-        self.filter_frame = FilterGui(self.main_canvas)
+        self.filter_frame = FilterPanel(self.main_canvas, self.manager.gui_config, self.manager)
         # Run the root window GUI
         self.root.mainloop()
 

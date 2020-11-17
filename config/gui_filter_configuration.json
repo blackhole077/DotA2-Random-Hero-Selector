@@ -1,0 +1,47 @@
+{
+    "primary_attribute": [
+        "strength",
+        "agility",
+        "intelligence"
+    ],
+    "attack_type": [
+        "melee",
+        "ranged",
+        "both"
+    ],
+    "positions": [
+        "carry",
+        "mid_core",
+        "offlane",
+        "soft_support",
+        "hard_support"
+    ],
+    "crowd_control_tags": [
+        "stun",
+        "slow",
+        "silence",
+        "break",
+        "hex",
+        "taunt",
+        "instant_kill",
+        "mini_stun",
+        "hypnotize",
+        "cyclone",
+        "mana_burn",
+        "shackle",
+        "forced_movement",
+        "sleep",
+        "blind",
+        "dispel",
+        "mute",
+        "break",
+        "trap",
+        "root",
+        "fear",
+        "disarm",
+        "hide",
+        "leash",
+        "ethereal",
+        "none"
+    ]
+}

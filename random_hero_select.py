@@ -15,7 +15,7 @@ import os
 import sys
 from io import BytesIO
 from json import load
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Dict
 
 import numpy as np
 import pandas as pd
@@ -68,7 +68,9 @@ class RandomHeroSelectManager:
 
     def __init__(self, preference_location:Optional[str]="config/default_hero_list.json", configuration_location:Optional[str]="config/hero_configuration.json"):
         self.available_images = [f for f in os.listdir('images/') if os.path.isfile(os.path.join('images/', f))]
-        self.hero_dataframe = self.generate_hero_dataframe(preference_location, configuration_location)
+        with open("config/gui_filter_configuration.json", 'r') as _file:
+            self.gui_config = load(_file)
+        self.hero_dataframe:'pandas.DataFrame' = self.generate_hero_dataframe(preference_location, configuration_location)
         self.mask = None
         # Set the filtered to be equal to the original
         self.filtered_dataframe = self.hero_dataframe
@@ -101,7 +103,14 @@ class RandomHeroSelectManager:
                 masks are combined by LOGCIAL AND into a single mask.
         """
 
-        return np.in1d(hero_dataframe[column_to_check].values, desired_values)
+        if isinstance(self.hero_dataframe[column_to_check].values[0], list):
+            boolean_values = []
+            for values in self.hero_dataframe[column_to_check].values:
+                boolean_values.append(np.any(np.isin(values, desired_values)))
+            print(boolean_values)
+            return np.array(boolean_values)
+        else:
+            return np.in1d(self.hero_dataframe[column_to_check].values, desired_values)
     
     def generate_combined_mask(self, mask_1, mask_2):
         """
@@ -119,55 +128,92 @@ class RandomHeroSelectManager:
             mask_1: numpy.array
                 A boolean array that masks out certain heroes in the
                 hero_dataframe data structure. Multiple filters and
-                masks are combined by LOGCIAL AND into a single mask.
+                masks are combined by LOGICAL AND into a single mask.
             mask_2: numpy.array
                 A boolean array that masks out certain heroes in the
                 hero_dataframe data structure. Multiple filters and
-                masks are combined by LOGCIAL AND into a single mask.
+                masks are combined by LOGICAL AND into a single mask.
 
             Returns
             -------
             combined_mask: numpy.array
                 A boolean array that masks out certain heroes in the
                 hero_dataframe data structure. Multiple filters and
-                masks are combined by LOGCIAL AND into a single mask.
+                masks are combined by LOGICAL AND into a single mask.
         """
 
+        # If both masks are None values, then return None
+        if mask_1 is None and mask_2 is None:
+            return None
+        # If the first mask is not initialized but the second is, return the second mask
+        if mask_1 is None and not mask_2 is None:
+            return mask_2
+        # If the first mask is initialized but the second isn't, return the first mask
+        if not mask_1 is None and mask_2 is None:
+            return mask_1
+        # If both masks are present, then combine them with LOGICAL AND
         return mask_1 & mask_2
     
-    def callback_primary_stat_mask(self, values):
+    def callback_generate_masks(self, checkbox_dict: Dict[str, 'random_hero_select_gui.Checkbar']):
         """
-            A callback function to filter the heroes
-            based on their primary attribute.
+            A callback function to filter the heroes based on the values in all filters.
 
-            This function creates and applies a filter
-            that results in a subset of heroes whose
-            primary attribute matches the desired values.
+            This function creates and applies multiple filters that results in a
+            subset of heroes whose primary attribute matches the desired values.
 
             Parameters
             ----------
-            values: Unknown.
-                Writeme.
+            checkbox_dict: Dict[str, `random_hero_select_gui.Checkbar`]
+                A dictionary structure that contains the name of the filter
+                as the key, and any selected values for the filter as the value.
+                If no values are selected for a particular filter, the default
+                behavior is that all values are treated as being selected.
 
             Returns
             -------
             None.
         """
 
-        self.mask = self.generate_combined_mask(self.mask, self.generate_mask('primary_stat', values)) 
+        self.filtered_dataframe = self.reset_filtered_hero_dataframe()
+        for key, value in checkbox_dict.items():
+            checkbox_values = value.fetch_selected_labels()
+            # If no values are selected, behavior should be equivalent to all values being selected.
+            if not checkbox_values:
+                checkbox_values = value.labels
+            # Generate a mask and combine it with the existing mask (if one is present)
+            self.mask = self.generate_combined_mask(self.mask, self.generate_mask(key, checkbox_values))
+        print(self.mask)
+        # If all values in the mask are False, then reset the entire thing.
+        if not any(self.mask):
+            # TODO: Add something to tell the user their current filters don't work.
+            self.reset_filtered_hero_dataframe()
+            self.callback_clear_masks(checkbox_dict)
+            return
+        # Generate the filtered dataframe if everything looks good
         self.generate_filtered_hero_dataframe()
 
-    def callback_position_mask(self, values):
-        self.mask = self.generate_combined_mask(self.mask, self.generate_mask('position', values)) 
-        self.generate_filtered_hero_dataframe()
+    def callback_clear_masks(self, checkbox_dict):
+        """
+            Clear out all selected filter values.
 
-    def callback_attack_type_mask(self, values):
-        self.mask = self.generate_combined_mask(self.mask, self.generate_mask('attack_type', values)) 
-        self.generate_filtered_hero_dataframe()
+            This function resets all checkboxes in all filters and resets the hero pool.
 
-    def callback_crowd_control_mask(self, values):
-        self.mask = self.generate_combined_mask(self.mask, self.generate_mask('crowd_control_tags', values))
-        self.generate_filtered_hero_dataframe()
+            Parameters
+            ----------
+            checkbox_dict: Dict[str, `random_hero_select_gui.Checkbar`]
+                A dictionary structure that contains the name of the filter
+                as the key, and any selected values for the filter as the value.
+                If no values are selected for a particular filter, the default
+                behavior is that all values are treated as being selected.
+            
+            Returns
+            -------
+            None.
+        """
+
+        for checkboxes in checkbox_dict.values():
+            checkboxes.clear()
+        self.reset_filtered_hero_dataframe()
 
     def generate_filtered_hero_dataframe(self):
         """
@@ -188,6 +234,26 @@ class RandomHeroSelectManager:
         self.filtered_dataframe = self.hero_dataframe[self.mask]
         self.hero_probabilities = self.generate_probability_list()
     
+    def reset_filtered_hero_dataframe(self):
+        """
+            Clear existing filters to reset the filtered DataFrame and create the probabilities.
+
+            This function removes any existing masks onto the main DataFrame,
+            after which the new probabilities are generated.
+
+            Parameters
+            ----------
+            None.
+
+            Returns
+            -------
+            None.
+        """
+
+        self.mask = None
+        self.filtered_dataframe = self.hero_dataframe
+        self.hero_probabilities = self.generate_probability_list()
+
     def callback_generate_random_hero(self, photo_placeholder:'tkinter.Label', photo_label:'tkinter.Label', hero_text:'tkinter.StringVar') -> None:
         """
             A callback function to randomly select a hero and display the corresponding image.
@@ -252,7 +318,6 @@ class RandomHeroSelectManager:
                 _file.write(response.content)
             return ImageTk.PhotoImage(Image.open(BytesIO(response.content)))
 
-
     def generate_probability_list(self) -> 'numpy.array':
         """
             Generate a weighted list based on preferences.
@@ -316,24 +381,3 @@ class RandomHeroSelectManager:
         # Clean out the preference dictionary
         pref_dict.clear()
         return pd.DataFrame.from_dict(hero_dict, orient='index')
-
-def main():
-    """
-        The main function for rolling (and re-rolling) a random hero
-        according to your weighted preferences.
-        This is essentially a debug function, and is not used in the application.
-    """
-
-    hero_dataframe = generate_hero_dataframe('config/default_hero_list.json', 'config/hero_configuration.json')
-    print(hero_dataframe)
-    mask = np.in1d(hero_dataframe['primary_stat'].values, ['strength', 'intelligence'])
-    mask_2 = hero_dataframe['attack_type'] == 'ranged'
-    mask_comp = mask & mask_2
-    df_slice = hero_dataframe[mask_comp]
-    print(df_slice)
-    weighted_probabilities = generate_probability_list(df_slice['preference'].values)
-    for _ in range(5):
-        print(df_slice.sample(weights=weighted_probabilities).index.values)
-
-if __name__ == "__main__":
-    main()
