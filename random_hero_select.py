@@ -107,7 +107,6 @@ class RandomHeroSelectManager:
             boolean_values = []
             for values in self.hero_dataframe[column_to_check].values:
                 boolean_values.append(np.any(np.isin(values, desired_values)))
-            print(boolean_values)
             return np.array(boolean_values)
         else:
             return np.in1d(self.hero_dataframe[column_to_check].values, desired_values)
@@ -182,7 +181,6 @@ class RandomHeroSelectManager:
                 checkbox_values = value.labels
             # Generate a mask and combine it with the existing mask (if one is present)
             self.mask = self.generate_combined_mask(self.mask, self.generate_mask(key, checkbox_values))
-        print(self.mask)
         # If all values in the mask are False, then reset the entire thing.
         if not any(self.mask):
             # TODO: Add something to tell the user their current filters don't work.
@@ -307,16 +305,24 @@ class RandomHeroSelectManager:
                 upon initialization.
         """
 
+        # If the image already exists locally, use it instead
         if image_stub in self.available_images:
-            return ImageTk.PhotoImage(Image.open(os.path.join('images/', image_stub)))
+            image = Image.open(os.path.join('images/', image_stub))
         else:
+            # Fetch the image from the DotA2 CDN
             url = f"http://cdn.dota2.com/apps/dota2/images/heroes/{image_stub}"
             response = requests.get(url)
+            # If the response is no good, then display the default image.
             if not response.ok:
-                return ImageTk.PhotoImage(Image.open('images/default_vert.jpg'))
-            with open(os.path.join('images/', image_stub), 'wb') as _file:
-                _file.write(response.content)
-            return ImageTk.PhotoImage(Image.open(BytesIO(response.content)))
+                image = Image.open('images/default_vert.jpg')
+            else:
+                # Write the image to a file (maintaining the naming scheme)
+                with open(os.path.join('images/', image_stub), 'wb') as _file:
+                    _file.write(response.content)
+                # Read the bytes as an image
+                image = Image.open(BytesIO(response.content))
+        # Open the image and resize it to the default size (width: 235px, height: 272px) as some images are larger.
+        return ImageTk.PhotoImage(image.resize(size=(235, 272)))
 
     def generate_probability_list(self) -> 'numpy.array':
         """
