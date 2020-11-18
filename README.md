@@ -75,4 +75,4 @@ While there is a default hero list that can be modified directly for adjusting p
 
 ### Unit Testing
 
-As of now, the system works, but lacks any unit tests. Naturally, this results in abysmal coverage. Therefore, a future direction with this project is to understand the standard for testing GUI code, along with making sure that these tests adhere to the same standard as the main code.
+Currently there are no unit tests in place. Therefore, a future direction with this project is to understand the standard for testing GUI code, along with making sure that these tests adhere to the same standard as the main code.
