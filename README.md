@@ -39,7 +39,7 @@ Initially, this was a command-line tool, but this was not accessible to users wh
 ## What the Expectations Were
 
 
-To give an idea of why certain design decisions were made (good or bad), it helps to have an understanding of what this project was **expected to do**. As such, below is an bulleted list of those expectations.
+To give an idea of why certain design decisions were made, it helps to have an understanding of what this project was **expected to do**. As such, below is an bulleted list of those expectations.
 
 - Update the original implementation to be more robust and customizable by an end user
 - Create a user-friendly GUI that contains the program's functionality
