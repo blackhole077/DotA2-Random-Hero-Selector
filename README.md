@@ -1,4 +1,5 @@
 # The Random Button With You in Mind
+![A GIF showing what the GUI looks like when in use.](https://github.com/blackhole077/DotA2-Random-Hero-Selector/blob/main/example-of-use.gif)
 ## Quick Start Information
 ### Required Packages and Libraries
 
