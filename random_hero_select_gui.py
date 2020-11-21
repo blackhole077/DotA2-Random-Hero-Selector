@@ -241,7 +241,6 @@ class FilterPanel:
             self.filters[key] = filter.checkboxes
         # Set up the button subcomponent
         self.filter_button_frame = tk.Frame(parent)
-        self.filter_application_button = tk.Button(self.filter_button_frame, text='Apply Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_generate_masks(self.filters))
         self.filter_clear_button = tk.Button(self.filter_button_frame, text='Clear Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_clear_masks(self.filters))
         # Pack all components
         self.hidden = 1
@@ -265,13 +264,11 @@ class FilterPanel:
         """
 
         if self.hidden:
-            self.filter_application_button.pack(side='left')
             self.filter_clear_button.pack(side='right')
             self.filter_parent.pack(side='top', padx=(10, 10), pady=(10, 10))
             self.filter_button_frame.pack(side='bottom', padx=(10, 10), pady=(10, 10))
             self.hidden = 0
         else:
-            self.filter_application_button.pack_forget()
             self.filter_clear_button.pack_forget()
             self.filter_parent.pack_forget()
             self.filter_button_frame.pack_forget()
@@ -374,7 +371,7 @@ class RandomHeroSelectGUI:
         # Generate the FilterPanel component
         self.filter_frame = FilterPanel(self.main_canvas, self.manager.gui_config, self.manager)
         # Create the Random button and attach the appropriate callback parameters from the HeroPortrait component
-        self.random_button = tk.Button(self.hero_portrait_frame, text='Next Hero Please!', height=5, width=32, command = lambda: self.manager.callback_generate_random_hero(self.hero_portrait.photo_placeholder, self.hero_portrait.photo_label, self.hero_portrait.hero_text))
+        self.random_button = tk.Button(self.hero_portrait_frame, text='Next Hero Please!', height=5, width=32, command = lambda: self.manager.callback_generate_random_hero(self.filter_frame.filters, self.hero_portrait.photo_placeholder, self.hero_portrait.photo_label, self.hero_portrait.hero_text))
         # Make the button look raised
         self.random_button.config(relief=tk.RAISED)
         # Create the Filter Toggle button and attach the appropriate callback function

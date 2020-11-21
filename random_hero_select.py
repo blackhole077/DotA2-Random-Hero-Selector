@@ -297,7 +297,7 @@ class RandomHeroSelectManager:
         self.filtered_dataframe = self.hero_dataframe
         self.hero_probabilities = self.generate_probability_list()
 
-    def callback_generate_random_hero(self, photo_placeholder:'tk.Label', photo_label:'tk.Label', hero_text:'tk.StringVar') -> None:
+    def callback_generate_random_hero(self, hero_filters: Dict[str, 'random_hero_select_gui.Checkbar'], photo_placeholder:'tk.Label', photo_label:'tk.Label', hero_text:'tk.StringVar') -> None:
         """
             A callback function to randomly select a hero and display the corresponding image.
 
@@ -321,6 +321,9 @@ class RandomHeroSelectManager:
             None.
         """
 
+        # Generate a filtered hero pool if any filters are toggled
+        if hero_filters:
+            self.callback_generate_masks(hero_filters)
         random_hero = self.filtered_dataframe.sample(weights=self.hero_probabilities).index.values[0]
         cleaned_hero_text = random_hero.replace('_', ' ').title()
         img = self.fetch_image(f"{self.hero_dataframe.loc[random_hero, 'image_prefix']}_vert.jpg")
