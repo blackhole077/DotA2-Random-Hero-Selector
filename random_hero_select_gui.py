@@ -1,11 +1,12 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from io import BytesIO
+from json import JSONDecodeError
 from os import getcwd
 from os.path import join
 from tkinter import filedialog, messagebox
 from typing import Dict, Iterable, List, Union
-from json import JSONDecodeError
+
 import requests
 from PIL import Image, ImageTk
 
@@ -243,10 +244,38 @@ class FilterPanel:
         self.filter_application_button = tk.Button(self.filter_button_frame, text='Apply Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_generate_masks(self.filters))
         self.filter_clear_button = tk.Button(self.filter_button_frame, text='Clear Filters', width=10, height=1, fg='blue', command= lambda: logic_layer.callback_clear_masks(self.filters))
         # Pack all components
-        self.filter_application_button.pack(side='left')
-        self.filter_clear_button.pack(side='right')
-        self.filter_parent.pack(side='top', padx=(10, 10), pady=(10, 10))
-        self.filter_button_frame.pack(side='bottom', padx=(10, 10), pady=(10, 10))
+        self.hidden = 1
+
+    def callback_toggle_visibility(self):
+        """
+            Toggle the visibility of the panel.
+
+            This function is used to hide/show the filter options,
+            in the event that the user is not interested in having
+            them present. The purpose is to reduce potential clutter
+            while giving the user agency in choosing when to do so.
+
+            Parameters
+            ----------
+            None.
+
+            Returns
+            -------
+            None.
+        """
+
+        if self.hidden:
+            self.filter_application_button.pack(side='left')
+            self.filter_clear_button.pack(side='right')
+            self.filter_parent.pack(side='top', padx=(10, 10), pady=(10, 10))
+            self.filter_button_frame.pack(side='bottom', padx=(10, 10), pady=(10, 10))
+            self.hidden = 0
+        else:
+            self.filter_application_button.pack_forget()
+            self.filter_clear_button.pack_forget()
+            self.filter_parent.pack_forget()
+            self.filter_button_frame.pack_forget()
+            self.hidden = 1
 
 class MenuBar:
     """
@@ -339,23 +368,49 @@ class RandomHeroSelectGUI:
         self.root.resizable(0,0)
         # Create the main canvas
         self.main_canvas = tk.Canvas(self.root)
-        # Pack the main canvas
-        self.main_canvas.pack()
         # Generate the hero portrait component and attach it
         self.hero_portrait_frame = tk.Frame(self.main_canvas)
         self.hero_portrait = HeroPortrait(self.hero_portrait_frame)
-        # Pack the HeroPortrait component into the main canvas
-        self.hero_portrait_frame.pack(side='left')
+        # Generate the FilterPanel component
+        self.filter_frame = FilterPanel(self.main_canvas, self.manager.gui_config, self.manager)
         # Create the Random button and attach the appropriate callback parameters from the HeroPortrait component
         self.random_button = tk.Button(self.hero_portrait_frame, text='Next Hero Please!', height=5, width=32, command = lambda: self.manager.callback_generate_random_hero(self.hero_portrait.photo_placeholder, self.hero_portrait.photo_label, self.hero_portrait.hero_text))
         # Make the button look raised
         self.random_button.config(relief=tk.RAISED)
-        # Pack the button towards the bottom of the hero_portait frame (bottom-left) with padding.
-        self.random_button.pack(side='bottom', padx=(10, 10), pady=(10, 10))
-        self.filter_frame = FilterPanel(self.main_canvas, self.manager.gui_config, self.manager)
+        # Create the Filter Toggle button and attach the appropriate callback function
+        self.filter_toggle_button = tk.Button(self.hero_portrait_frame, text='Toggle Filters', height=3, width=32, command=self.filter_frame.callback_toggle_visibility)
+        self.filter_toggle_button.config(relief=tk.RAISED)
+        # Pack all components
+        self._pack_components()
         # Run the root window GUI
         self.root.mainloop()
 
+    def _pack_components(self) -> None:
+        """
+            Pack all components.
+
+            A convenience function to separate out the pack() calls
+            from initialization, which should decouple the initialization
+            order from the packing order.
+
+            Parameters
+            ----------
+            None.
+
+            Returns
+            -------
+            None.
+        """
+
+        # Pack the main canvas
+        self.main_canvas.pack()
+        # Pack the HeroPortrait component into the main canvas
+        self.hero_portrait_frame.pack(side='left')
+        # Pack the button towards the bottom of the hero_portait frame (bottom-left) with padding.
+        self.random_button.pack(padx=(10, 10), pady=(10, 0))
+        self.filter_toggle_button.pack(side='bottom', padx=(10, 10), pady=(5, 10))
+        # Pack the FilterPanel
+        self.filter_frame.callback_toggle_visibility()
 
 if __name__ == "__main__":
     r = RandomHeroSelectGUI()
