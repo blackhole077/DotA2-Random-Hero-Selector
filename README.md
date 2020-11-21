@@ -66,13 +66,25 @@ Finally, this project serves to **demonstrate the developer's knowledge in stand
 
 Currently the project contains all basic functionality, including ad hoc filtering. However, there are additional features that could be introduced should there be additional demand for it.
 
-### Hiding the filter panel
+### Hiding the filter panel **(Completed 11/21/20)**
 
-As of right now, the filter panel is somewhat unwieldy, consuming more than 2/3 of the available GUI space. As such, a feature that could be implemented is some sort of button or command that effectively "hides" the panel at the end-user's discretion.
+~~As of right now, the filter panel is somewhat unwieldy, consuming more than 2/3 of the available GUI space. As such, a feature that could be implemented is some sort of button or command that effectively "hides" the panel at the end-user's discretion.~~
 
-### A file menu for selecting new hero preference lists
+### A file menu for selecting new hero preference lists **(Completed 11/21/20)**
 
-While there is a default hero list that can be modified directly for adjusting preference values, completely new lists of heroes cannot be hot-swapped easily, requiring the end-user to instead dive into the source code itself to make such changes. Therefore, adding a menu bar with some window dialog would alleviate this situation.
+~~While there is a default hero list that can be modified directly for adjusting preference values, completely new lists of heroes cannot be hot-swapped easily, requiring the end-user to instead dive into the source code itself to make such changes. Therefore, adding a menu bar with some window dialog would alleviate this situation.~~
+
+### Preventing Hero Re-picks ([Request from Redditor u/snaykey](https://www.reddit.com/r/DotA2/comments/jwa0gy/i_created_a_gui_that_emulates_random_hero/gcp91lb?utm_source=share&utm_medium=web2x&context=3))
+
+As pointed out by a Reddit user, since this program does not necessarily replicate a 'true random' process it may be more convenient if subsequent requests for a new random hero do not re-pick the currently selected hero. Therefore, the request is for adding the ability to sample at least two heroes in order to check if the first choice is the same as the current selection. However, there is some need for safeguards as, given certain combinations of filters, it is possible for only one hero to exist in the filtered hero pool. As such, there may be a need to inform the user of this scenario when it occurs.
+
+### Show 'Alternative Options' ([Request from Redditor u/snaykey](https://www.reddit.com/r/DotA2/comments/jwa0gy/i_created_a_gui_that_emulates_random_hero/gcp91lb?utm_source=share&utm_medium=web2x&context=3))
+
+Similar to the previous point, showing other heroes that may fit a given filter (e.g., Strength melee hero with a stun) outside of the randomly chosen hero would increase the accessibility of the program. Therefore, the request is for adding a new component (or modifying an existing one) that shows alternative choices to the randomly selected hero. Likewise, since it is possible for only one hero to fit some arbitrary set of filters, this scenario must be handled similar to the previous point.
+
+### Show Number of Applicable Heroes ([Request from Redditor u/snaykey](https://www.reddit.com/r/DotA2/comments/jwa0gy/i_created_a_gui_that_emulates_random_hero/gcp91lb?utm_source=share&utm_medium=web2x&context=3))
+
+Whenever a set of filters are applied, it may not be apparent how many (or few) heroes are actually eligible for selection. Therefore, creating a component and necessary logic for showing the number of heroes that can match the current filters would allow users to understand how loose (or restrictive) their current filters are.
 
 ### Unit Testing
 
