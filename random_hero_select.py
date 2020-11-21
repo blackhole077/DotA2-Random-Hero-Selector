@@ -14,8 +14,8 @@
 import os
 import sys
 from io import BytesIO
-from json import load
-from typing import List, Optional, Union, Dict
+from json import load, JSONDecodeError
+from typing import Dict, List, Union
 
 import numpy as np
 import pandas as pd
@@ -55,26 +55,71 @@ class RandomHeroSelectManager:
 
         Parameters
         ----------
-        preference_location: Optional[str]
+        preference_location: str
             The file path location of the JSON file to use
             for hero preferences. The values are scaled from
             0 to 4, with higher numbers indicating a higher
             desire to play.
-        configuration_location: Optional[str]
+        configuration_location: str
             The file path location of the JSON file that
             contains the filter-specific information, along
             with other static pieces of information.
     """
 
-    def __init__(self, preference_location:Optional[str]="config/default_hero_list.json", configuration_location:Optional[str]="config/hero_configuration.json"):
+    def __init__(self, preference_location:str="config/default_hero_list.json", configuration_location:str="config/hero_configuration.json"):
+        # Store the locations in case one of them is modified
+        self.preference_location = preference_location
+        self.configuration_location = configuration_location
+        # Gather all locally available images
         self.available_images = [f for f in os.listdir('images/') if os.path.isfile(os.path.join('images/', f))]
+        # Generate the GUI configuration data structure
         with open("config/gui_filter_configuration.json", 'r') as _file:
             self.gui_config = load(_file)
+        # Generate the base hero pool (default preference list will have all DotA 2 heroes, user-defined ones may not)
         self.hero_dataframe:'pd.DataFrame' = self.generate_hero_dataframe(preference_location, configuration_location)
-        self.mask = None
+        # Set the default mask to be all TRUE values (meaning nothing is filtered out)
+        self.mask = np.ones(shape=(len(self.hero_dataframe.index),), dtype=bool)
         # Set the filtered to be equal to the original
         self.filtered_dataframe = self.hero_dataframe
-        self.hero_probabilities = None
+        # Generate the starting probabilities
+        self.hero_probabilities:'np.ndarray' = self.generate_probability_list()
+
+    def callback_open_new_preference_list(self, preference_location:str) -> None:
+        """
+            A callback function to open and utilize a new preference file.
+
+            This callback function attempts to regenerate a hero pool from the
+            preference file provided, as well as reset the masks and filtered
+            hero pool to match the new pool size, if it is different from the
+            default values.
+
+            Parameters
+            ----------
+            preference_location: str
+                The file path location of the JSON file to use
+                for hero preferences. The values are scaled from
+                0 to 4, with higher numbers indicating a higher
+                desire to play.
+            
+            Returns
+            -------
+            None.
+
+            Raises
+            ------
+            JSONDecoderError:
+                If a JSON decoding error occurs, this function will pass
+                it up to the GUI as a JSONDecoderError such that it can display
+                an error to the user.
+        """
+
+        try:
+            self.hero_dataframe: 'pd.DataFrame' = self.generate_hero_dataframe(preference_location, self.configuration_location)
+            self.preference_location = preference_location
+            # Reset the values to match the new hero pool
+            self.reset_filtered_hero_dataframe()
+        except JSONDecodeError as _json_error:
+            raise JSONDecodeError(msg=_json_error.msg, doc=_json_error.doc, pos=_json_error.pos)
 
     def generate_mask(self, column_to_check:str, desired_values:Union[List[str],List[int]]):
         """
@@ -248,11 +293,11 @@ class RandomHeroSelectManager:
             None.
         """
 
-        self.mask = None
+        self.mask = np.ones(shape=(len(self.hero_dataframe.index),), dtype=bool)
         self.filtered_dataframe = self.hero_dataframe
         self.hero_probabilities = self.generate_probability_list()
 
-    def callback_generate_random_hero(self, photo_placeholder:'tkinter.Label', photo_label:'tkinter.Label', hero_text:'tkinter.StringVar') -> None:
+    def callback_generate_random_hero(self, photo_placeholder:'tk.Label', photo_label:'tk.Label', hero_text:'tk.StringVar') -> None:
         """
             A callback function to randomly select a hero and display the corresponding image.
 
@@ -275,7 +320,7 @@ class RandomHeroSelectManager:
             -------
             None.
         """
-        
+
         random_hero = self.filtered_dataframe.sample(weights=self.hero_probabilities).index.values[0]
         cleaned_hero_text = random_hero.replace('_', ' ').title()
         img = self.fetch_image(f"{self.hero_dataframe.loc[random_hero, 'image_prefix']}_vert.jpg")
@@ -373,17 +418,31 @@ class RandomHeroSelectManager:
             -------
             hero_dataframe: pandas.DataFrame
                 A DataFrame object that contains all information in both files.
+            
+            Raises
+            ------
+            JSONDecoderError
+                If either file is improperly formatted, then this error will be raised.
         """
         
         hero_dict = {}
         with open(configuration_location, 'r') as _config_file:
-            hero_dict = load(_config_file)
+            try:
+                hero_dict = load(_config_file)
+            except JSONDecodeError as _json_error:
+                raise JSONDecodeError(msg="The configuration file provided could not be decoded. The file may be corrupted, or improperly formatted.", doc=_json_error.doc, pos=_json_error.pos)
         pref_dict = {}
         with open(preference_location, 'r') as _preference_file:
-            pref_dict = load(_preference_file)
+            try:
+                pref_dict = load(_preference_file)
+            except JSONDecodeError as _json_error:
+                raise JSONDecodeError(msg="The preferences file provided could not be decoded. The file may be corrupted, or improperly formatted.", doc=_json_error.doc, pos=_json_error.pos)
         # Manually update one dictionary with values from the other to prevent overwriting
-        for key in hero_dict.keys():
-            hero_dict[key].update(pref_dict.get(key))
+        for key in pref_dict.keys():
+            pref_dict[key].update(hero_dict.get(key))
         # Clean out the preference dictionary
-        pref_dict.clear()
-        return pd.DataFrame.from_dict(hero_dict, orient='index')
+        hero_dict.clear()
+        # Delete the object to free up memory
+        del hero_dict
+        # Return the DataFrame conversion
+        return pd.DataFrame.from_dict(pref_dict, orient='index')

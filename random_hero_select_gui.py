@@ -1,8 +1,11 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from io import BytesIO
-from typing import Dict, List, Union, Iterable
-
+from os import getcwd
+from os.path import join
+from tkinter import filedialog, messagebox
+from typing import Dict, Iterable, List, Union
+from json import JSONDecodeError
 import requests
 from PIL import Image, ImageTk
 
@@ -24,7 +27,7 @@ class Checkbar(tk.Frame):
 
         Parameters
         ----------
-        parent: 'tk.Frame'
+        parent: Union[tkinter.Frame, tkinter.Canvas]
             The parent container or component the Checkbar is attached to.
         labels: List[str]
             The list of labels for the checkboxes.
@@ -38,7 +41,7 @@ class Checkbar(tk.Frame):
         None.
     """
 
-    def __init__(self, parent:'tk.Frame', labels:List[str], max_per_row: int=5) -> None:
+    def __init__(self, parent:Union['tk.Frame', 'tk.Canvas'], labels:List[str], max_per_row: int=5) -> None:
         tk.Frame.__init__(self, parent)
         self.vars = []
         self.labels = labels
@@ -130,7 +133,7 @@ class HeroPortrait:
 
         Parameters
         ----------
-        parent: tkinter.Frame
+        parent: Union[tkinter.Frame, tkinter.Canvas]
             The Frame (or Frame) that will contain this subcomponent
         
         Returns
@@ -164,7 +167,7 @@ class FilterGUI:
 
         Parameters
         ----------
-        parent: Union['tk.Frame', 'tk.Canvas']
+        parent: Union[tkinter.Frame, tkinter.ttk.Labelframe, tkinter.Canvas]
             The parent container or component the FilterPanel is attached to.
         filter_name: str
             The name of the filter. Should correspond to some value present
@@ -177,16 +180,16 @@ class FilterGUI:
         None.
     """
 
-    def __init__(self, parent: Union['tk.Frame', 'tk.Canvas'], filter_name: str, filter_values: List[str]) -> None:
-        self.filter_parent = tk.Frame(parent, bg='grey')
+    def __init__(self, parent: Union['tk.Frame', 'tk.ttk.Labelframe', 'tk.Canvas'], filter_name: str, filter_values: List[str]) -> None:
+        self.filter_parent = tk.Frame(parent)
         name = filter_name.replace('_', ' ').title()
         self.filter_parent_label = tk.Label(self.filter_parent, text=f"Filter by {name}")
         self.filter_parent.pack(side='top')
         self.filter_parent_label.pack(side='top')
-        self.checkboxes = Checkbar(parent, filter_values)
-        self.checkboxes.pack(padx=(10, 10), pady=(10, 10))
         s = tk.ttk.Separator(self.filter_parent, orient=tk.HORIZONTAL)
-        s.pack()
+        s.pack(fill='x')
+        self.checkboxes = Checkbar(self.filter_parent, filter_values)
+        self.checkboxes.pack(padx=(10, 10), pady=(10, 10))
 
 class FilterPanel:
     """
@@ -245,6 +248,43 @@ class FilterPanel:
         self.filter_parent.pack(side='top', padx=(10, 10), pady=(10, 10))
         self.filter_button_frame.pack(side='bottom', padx=(10, 10), pady=(10, 10))
 
+class MenuBar:
+    """
+        A secondary GUI component for the DotA2 Random Hero Selector.
+
+        This GUI component serves as the menu bar for selecting new files to be used.
+        It's primary usage is to switch between various preference lists freely, should
+        the user wish to.
+
+        Attributes
+        ----------
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        None.
+    """
+
+    def __init__(self, parent: 'tk.Tk', manager: RandomHeroSelectManager) -> None:
+
+        self.menu_bar = tk.Menu(parent)
+        self.manager = manager
+        self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.file_menu.add_command(label="Open New Preference File", command=self.open_file)
+        self.file_menu.add_separator()
+        self.file_menu.add_command(label="Exit", command=parent.quit)
+        self.menu_bar.add_cascade(label="File", menu=self.file_menu)
+
+    def open_file(self):
+        file_name = tk.filedialog.askopenfilename(initialdir=join(getcwd(), 'config/'), title='Select Preference List', filetypes=(("JSON files", "*.json"),("All Files","*.*")))
+        try:
+            self.manager.callback_open_new_preference_list(file_name)
+        except JSONDecodeError as _json_error:
+            error_message = f"An error occurred when attempting to use the selected file. Reverting to the default preference list.\nError Details:\n{_json_error}"
+            tk.messagebox.showerror("File Error", error_message)
+
 class RandomHeroSelectGUI:
     """
         The main GUI component for the DotA2 Random Hero Selector.
@@ -285,14 +325,18 @@ class RandomHeroSelectGUI:
     """
 
     def __init__(self) -> None:
+
+        # Load in the random selection logic
+        self.manager = RandomHeroSelectManager()
         # Create the root window
         self.root = tk.Tk()
         # Set the title
         self.root.title("DotA2 Random Hero Selector")
+        # Set up the Menu Bar
+        self.menu=MenuBar(self.root, self.manager)
+        self.root.config(menu=self.menu.menu_bar)
         # Turn off resizing
         self.root.resizable(0,0)
-        # Load in the random selection logic
-        self.manager = RandomHeroSelectManager()
         # Create the main canvas
         self.main_canvas = tk.Canvas(self.root)
         # Pack the main canvas
